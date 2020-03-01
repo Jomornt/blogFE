@@ -16,9 +16,10 @@ export const HeaderWrapper = styled.div `
   ul {
     display: flex;
     flex-direction: row;
-    li {
+    a {
       margin-left: 24px;
       cursor: pointer;
+      color: #414141;
       :hover {
         color: orangered;
       }

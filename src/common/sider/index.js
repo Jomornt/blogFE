@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd'
+import {toJS} from "mobx"
 import {
   SiderWrapper,
   SearchWrapper,
@@ -7,25 +8,27 @@ import {
   ContactBox,
   WebInformation,
 } from './style'
+import ArticleStore from '../../articlepage/stores/ArticleStore'
+import { observer } from 'mobx-react'
 
+@observer
 class Sider extends Component {
+  componentDidMount() {
+    ArticleStore.getArticleTags()
+  }
+  handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      ArticleStore.getArticleSearchResult(e.target.value)
+		}
+  }
   render() {
     return (
       <SiderWrapper>
-        <SearchWrapper placeholder="请输入内容" />
+        <SearchWrapper placeholder="请输入内容" onKeyDown={(e)=>this.handleSearch(e)}/>
         <SiderCard>
           <h3>Tags</h3>
           <div className="tagswrapper">
-            <div className="tag">度假酒店</div>
-            <div className="tag">二店</div>
-            <div className="tag">ttt</div>
-            <div className="tag">大数据</div>
-            <div className="tag">人工智能</div>
-            <div className="tag">java</div>
-            <div className="tag">python</div>
-            <div className="tag">js</div>
-            <div className="tag">s</div>
-            <div className="tag">随机</div>
+            {toJS(ArticleStore.tags) && toJS(ArticleStore.tags).map((item) => <div className="tag" key={item.id}>{item.name}</div>)}
           </div>
         </SiderCard>
         <SiderCard>
