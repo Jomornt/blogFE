@@ -23,7 +23,15 @@ export const SearchWrapper = styled.input `
 export const SiderCard = styled.div `
   background: white;
   margin-bottom: 24px;
+  position: relative;
   box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  .ant-btn-sm {
+    color: orangered !important;
+    border-color: orangered !important;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
   h3 {
     border-bottom: 1px solid #ddd;
     height: 56px;
@@ -39,11 +47,17 @@ export const SiderCard = styled.div `
       display: inline-block;
       border-radius: 4px;
       border: 1px solid #414141;
-      line-height: 24px;
+      line-height: 22px;
       height: 24px;
       font-size: 12px;
       margin: 4px 8px;
       padding: 0 4px;
+      user-select: none;
+      cursor: pointer;
+      :hover {
+        border: 1px solid orangered;
+        color: orangered;
+      }
     }
   }
   ul {
@@ -52,6 +66,19 @@ export const SiderCard = styled.div `
     color: #999;
     li {
       margin: 8px 0;
+      cursor: pointer;
+      a {
+        color: #999;
+        :hover {
+          color: orangered;
+        }
+      }
+      i {
+        margin-right: 8px;
+      }
+      :hover {
+        color: orangered;
+      }
     }
   }
 `
@@ -63,6 +90,20 @@ export const ContactBox = styled.div `
   align-items: center;
   margin-bottom: 24px;
   box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  i {
+    cursor: pointer;
+    /* pointer-events: none; */
+    z-index: 100;
+    path {
+      pointer-events: none;
+    }
+    :hover {
+      color: orangered;
+    }
+  }
+  a {
+    color: inherit;
+  }
   .anticon {
     font-size: 28px;
     line-height: 20px;

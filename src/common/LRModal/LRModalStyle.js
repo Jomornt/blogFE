@@ -28,6 +28,18 @@ export const LRWrapper = styled.div`
   .ant-input-affix-wrapper {
     margin-top: 24px;
   }
+  .verify-email {
+    position: absolute;
+    top: 184px;
+    right: 56px;
+    z-index: 100;
+  }
+  .email-input {
+    margin-bottom: 24px;
+  }
+  .code-input {
+    padding-right: 120px;
+  }
   .forget-password {
     font-size: 12px;
     color: #999;

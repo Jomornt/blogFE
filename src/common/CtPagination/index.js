@@ -25,7 +25,7 @@ function CtPagination(props) {
     <CtPaginationWrapper>
       <div className={`page-btn-active ${current <= 1 ? 'page-btn-inactive' : ''}`} onClick={handlePrevious}>Previous</div>
       {
-        [...Array(totalPage).keys()].map((item) => {
+        [...Array(totalPage).keys()].length ? [...Array(totalPage).keys()].map((item) => {
           return <div
                   className={`page-num ${current === item + 1 ? 'page-num-active' : ''}`}
                   onClick={() => setCurrent(item + 1)}
@@ -33,7 +33,13 @@ function CtPagination(props) {
                 >
                   {item + 1}
                 </div>
-        })
+        }) :
+        <div
+          className={`page-num page-num-active`}
+          key={1}
+        >
+          {1}
+        </div>
       }
       <div className={`page-btn-active ${current >= totalPage ? 'page-btn-inactive' : ''}`} onClick={handleNext}>Next</div>
     </CtPaginationWrapper>

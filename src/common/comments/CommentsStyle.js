@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CommentsWrapper = styled.div `
   background: white;
   padding: 24px 24px;
+  width: 100%;
   .btn-base {
     margin-left: auto;
     border: 1px solid #212121;
@@ -141,6 +142,18 @@ export const ReplyItemChildren = styled(CommentsReplyItem)`
   .item-content {
     span {
       color: orangered;
+    }
+  }
+`
+
+export const UploadWrapper = styled.div`
+  .avatar-uploader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ant-upload {
+      width: 200px;
+      height: 200px;
     }
   }
 `

@@ -85,7 +85,4 @@ export const Content = styled.div `
   margin: 40px auto;
   display: flex;
   flex-direction: row;
-  .content-left {
-    flex: 1;
-  }
 `
